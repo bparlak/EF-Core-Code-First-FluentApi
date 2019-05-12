@@ -4,14 +4,16 @@ using EfCodeFirstFluentApi.Models.Manager;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EfCodeFirstFluentApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20190512183420_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,12 +43,12 @@ namespace EfCodeFirstFluentApi.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnName("FirstName")
+                        .HasColumnName("Ad")
                         .HasMaxLength(20);
 
                     b.Property<string>("SecondName")
                         .IsRequired()
-                        .HasColumnName("SecondName")
+                        .HasColumnName("Soyad")
                         .HasMaxLength(20);
 
                     b.Property<string>("UserName")
@@ -130,7 +132,7 @@ namespace EfCodeFirstFluentApi.Migrations
                         {
                             OrderId = 1,
                             CustomerId = "a1",
-                            OrderDate = new DateTime(2019, 5, 12, 21, 59, 47, 851, DateTimeKind.Local).AddTicks(9749)
+                            OrderDate = new DateTime(2019, 5, 12, 21, 34, 19, 864, DateTimeKind.Local).AddTicks(596)
                         });
                 });
 

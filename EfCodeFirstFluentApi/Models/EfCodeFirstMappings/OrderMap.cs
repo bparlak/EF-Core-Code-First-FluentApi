@@ -32,10 +32,8 @@ namespace EfCodeFirstFluentApi.Models.EfCodeFirstMappings
         {
             builder.HasKey(t => t.OrderId);
             builder.Property(t => t.CustomerId)
-                .IsRequired()
-                .HasMaxLength(5);
+                .IsRequired();
             //builder.Property(t => t.CustomerId).IsFixedLength()//varcharyerine char olacak
-            //    .HasMaxLength(5);
 
             builder.ToTable("Orders");
 
@@ -46,7 +44,8 @@ namespace EfCodeFirstFluentApi.Models.EfCodeFirstMappings
             //1-n ilişki hasoptional ile üretiliyor
             builder.HasOne(t => t.Customer)
                 .WithMany(t => t.Orders)
-                .HasForeignKey(f => f.CustomerId);
+                .HasForeignKey(t => t.CustomerId)
+                .OnDelete(DeleteBehavior.Cascade);
             
         }
     }

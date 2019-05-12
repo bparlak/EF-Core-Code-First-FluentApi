@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace EfCodeFirstFluentApi.Models.Manager
 {
-    public class DatabaseContext:DbContext
+    public class DatabaseContext : DbContext
     {
-        public DatabaseContext(DbContextOptions<DatabaseContext> options):base(options)
+        public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
 
         }
@@ -22,12 +22,12 @@ namespace EfCodeFirstFluentApi.Models.Manager
             modelBuilder.ApplyConfiguration(new OrderMap());
             modelBuilder.Entity<Customer>()
                 .HasData(
-                new Customer() { CustomerId = "a1",  CompanyName = "A", ContactName = "burak parlak", City = "Ankara", Country = "Turkey" }, 
-                new Customer() { CustomerId = "a2", CompanyName = "B", ContactName = "burak parlak", City = "Ankara", Country = "Turkey" },
-                new Customer() { CustomerId = "a3", CompanyName = "C", ContactName = "burak parlak", City = "Ankara", Country = "Turkey" },
-                new Customer() { CustomerId = "a4", CompanyName = "D", ContactName = "burak parlak", City = "Ankara", Country = "Turkey" }
+                new Customer() { CustomerId = "a1", FirstName = "Burak", SecondName = "Parlak", Email = "info@burakparlak.com", City = "Ankara", Country = "Turkey", Age = 29, UserName = "bparlak" },
+                new Customer() { CustomerId = "a2", FirstName = "Burak", SecondName = "Parlak", Email = "info@burakparlak.com", City = "Ankara", Country = "Turkey", Age = 29, UserName = "bparlak" },
+                new Customer() { CustomerId = "a3", FirstName = "Burak", SecondName = "Parlak", Email = "info@burakparlak.com", City = "Ankara", Country = "Turkey", Age = 29, UserName = "bparlak" },
+                new Customer() { CustomerId = "a4", FirstName = "Burak", SecondName = "Parlak", Email = "info@burakparlak.com", City = "Ankara", Country = "Turkey", Age = 29, UserName = "bparlak" }
                 );
-            modelBuilder.Entity<Order>().HasData(new Order() { OrderId=1,CustomerId="a1",OrderDate=DateTime.Now });
+            modelBuilder.Entity<Order>().HasData(new Order() { OrderId = 1, CustomerId = "a1", OrderDate = DateTime.Now });
         }
     }
 }

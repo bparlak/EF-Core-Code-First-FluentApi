@@ -12,11 +12,14 @@ namespace EfCodeFirstFluentApi.Migrations
                 name: "Customers",
                 columns: table => new
                 {
-                    CustomerId = table.Column<string>(maxLength: 5, nullable: false),
-                    ContactName = table.Column<string>(maxLength: 30, nullable: true),
-                    CompanyName = table.Column<string>(maxLength: 40, nullable: false),
+                    CustomerId = table.Column<string>(nullable: false),
+                    Ad = table.Column<string>(maxLength: 20, nullable: false),
+                    Soyad = table.Column<string>(maxLength: 20, nullable: false),
+                    UserName = table.Column<string>(maxLength: 20, nullable: false),
                     City = table.Column<string>(maxLength: 15, nullable: true),
-                    Country = table.Column<string>(maxLength: 15, nullable: true)
+                    Country = table.Column<string>(maxLength: 15, nullable: true),
+                    Email = table.Column<string>(nullable: false),
+                    Age = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -29,7 +32,7 @@ namespace EfCodeFirstFluentApi.Migrations
                 {
                     OrderId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CustomerId = table.Column<string>(maxLength: 5, nullable: false),
+                    CustomerId = table.Column<string>(nullable: false),
                     OrderDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -45,19 +48,19 @@ namespace EfCodeFirstFluentApi.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "CustomerId", "City", "CompanyName", "ContactName", "Country" },
+                columns: new[] { "CustomerId", "Age", "City", "Country", "Email", "Ad", "Soyad", "UserName" },
                 values: new object[,]
                 {
-                    { "a1", "Ankara", "A", "burak parlak", "Turkey" },
-                    { "a2", "Ankara", "B", "burak parlak", "Turkey" },
-                    { "a3", "Ankara", "C", "burak parlak", "Turkey" },
-                    { "a4", "Ankara", "D", "burak parlak", "Turkey" }
+                    { "a1", 29, "Ankara", "Turkey", "info@burakparlak.com", "Burak", "Parlak", "bparlak" },
+                    { "a2", 29, "Ankara", "Turkey", "info@burakparlak.com", "Burak", "Parlak", "bparlak" },
+                    { "a3", 29, "Ankara", "Turkey", "info@burakparlak.com", "Burak", "Parlak", "bparlak" },
+                    { "a4", 29, "Ankara", "Turkey", "info@burakparlak.com", "Burak", "Parlak", "bparlak" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "OrderId", "CustomerId", "OrderDate" },
-                values: new object[] { 1, "a1", new DateTime(2019, 5, 12, 4, 40, 32, 951, DateTimeKind.Local).AddTicks(8) });
+                values: new object[] { 1, "a1", new DateTime(2019, 5, 12, 21, 34, 19, 864, DateTimeKind.Local).AddTicks(596) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_CustomerId",

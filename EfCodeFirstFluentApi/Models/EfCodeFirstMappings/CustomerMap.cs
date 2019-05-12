@@ -14,21 +14,28 @@ namespace EfCodeFirstFluentApi.Models.EfCodeFirstMappings
         {
             builder.HasKey(t => t.CustomerId);
             builder.Property(t => t.CustomerId)
+                .IsRequired();
+            builder.Property(t => t.FirstName)
                 .IsRequired()
-                .HasMaxLength(5);
-            builder.Property(t => t.CompanyName)
+                .HasMaxLength(20);/*.IsUnicode(false); varchar tanımlanıyor nvarcharın 2 katı tutuyor*/
+            builder.Property(t => t.SecondName)
                 .IsRequired()
-                .HasMaxLength(40);/*.IsUnicode(false); varchar tanımlanıyor nvarcharın 2 katı tutuyor*/
+                .HasMaxLength(20);
+            builder.Property(t => t.UserName)
+                .IsRequired()
+                .HasMaxLength(20);
             builder.Property(t => t.City).HasMaxLength(15);
-            builder.Property(t => t.ContactName).HasMaxLength(30);
+            builder.Property(t => t.Email).IsRequired();
             builder.Property(t => t.Country).HasMaxLength(15);
 
             builder.ToTable("Customers");
             builder.Property(t => t.CustomerId).HasColumnName("CustomerId");
-            builder.Property(t => t.CompanyName).HasColumnName("CompanyName");
+            builder.Property(t => t.UserName).HasColumnName("UserName");
             builder.Property(t => t.City).HasColumnName("City");
-            builder.Property(t => t.ContactName).HasColumnName("ContactName");
+            builder.Property(t => t.FirstName).HasColumnName("FirstName");
+            builder.Property(t => t.SecondName).HasColumnName("SecondName");
             builder.Property(t => t.Country).HasColumnName("Country");
+            builder.Property(t => t.Age).HasColumnName("Age");
         }
     }
 }

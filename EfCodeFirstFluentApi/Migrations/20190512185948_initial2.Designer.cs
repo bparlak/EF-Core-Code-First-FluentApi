@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EfCodeFirstFluentApi.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20190512014033_initial")]
-    partial class initial
+    [Migration("20190512185948_initial2")]
+    partial class initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,25 +25,36 @@ namespace EfCodeFirstFluentApi.Migrations
                 {
                     b.Property<string>("CustomerId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("CustomerId")
-                        .HasMaxLength(5);
+                        .HasColumnName("CustomerId");
+
+                    b.Property<int>("Age")
+                        .HasColumnName("Age");
 
                     b.Property<string>("City")
                         .HasColumnName("City")
                         .HasMaxLength(15);
 
-                    b.Property<string>("CompanyName")
-                        .IsRequired()
-                        .HasColumnName("CompanyName")
-                        .HasMaxLength(40);
-
-                    b.Property<string>("ContactName")
-                        .HasColumnName("ContactName")
-                        .HasMaxLength(30);
-
                     b.Property<string>("Country")
                         .HasColumnName("Country")
                         .HasMaxLength(15);
+
+                    b.Property<string>("Email")
+                        .IsRequired();
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnName("FirstName")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("SecondName")
+                        .IsRequired()
+                        .HasColumnName("SecondName")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnName("UserName")
+                        .HasMaxLength(20);
 
                     b.HasKey("CustomerId");
 
@@ -53,34 +64,46 @@ namespace EfCodeFirstFluentApi.Migrations
                         new
                         {
                             CustomerId = "a1",
+                            Age = 29,
                             City = "Ankara",
-                            CompanyName = "A",
-                            ContactName = "burak parlak",
-                            Country = "Turkey"
+                            Country = "Turkey",
+                            Email = "info@burakparlak.com",
+                            FirstName = "Burak",
+                            SecondName = "Parlak",
+                            UserName = "bparlak"
                         },
                         new
                         {
                             CustomerId = "a2",
+                            Age = 29,
                             City = "Ankara",
-                            CompanyName = "B",
-                            ContactName = "burak parlak",
-                            Country = "Turkey"
+                            Country = "Turkey",
+                            Email = "info@burakparlak.com",
+                            FirstName = "Burak",
+                            SecondName = "Parlak",
+                            UserName = "bparlak"
                         },
                         new
                         {
                             CustomerId = "a3",
+                            Age = 29,
                             City = "Ankara",
-                            CompanyName = "C",
-                            ContactName = "burak parlak",
-                            Country = "Turkey"
+                            Country = "Turkey",
+                            Email = "info@burakparlak.com",
+                            FirstName = "Burak",
+                            SecondName = "Parlak",
+                            UserName = "bparlak"
                         },
                         new
                         {
                             CustomerId = "a4",
+                            Age = 29,
                             City = "Ankara",
-                            CompanyName = "D",
-                            ContactName = "burak parlak",
-                            Country = "Turkey"
+                            Country = "Turkey",
+                            Email = "info@burakparlak.com",
+                            FirstName = "Burak",
+                            SecondName = "Parlak",
+                            UserName = "bparlak"
                         });
                 });
 
@@ -93,8 +116,7 @@ namespace EfCodeFirstFluentApi.Migrations
 
                     b.Property<string>("CustomerId")
                         .IsRequired()
-                        .HasColumnName("CustomerId")
-                        .HasMaxLength(5);
+                        .HasColumnName("CustomerId");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnName("OrderDate");
@@ -110,7 +132,7 @@ namespace EfCodeFirstFluentApi.Migrations
                         {
                             OrderId = 1,
                             CustomerId = "a1",
-                            OrderDate = new DateTime(2019, 5, 12, 4, 40, 32, 951, DateTimeKind.Local).AddTicks(8)
+                            OrderDate = new DateTime(2019, 5, 12, 21, 59, 47, 851, DateTimeKind.Local).AddTicks(9749)
                         });
                 });
 
